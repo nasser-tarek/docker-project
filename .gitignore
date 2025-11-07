@@ -1,0 +1,12 @@
+# Node.js
+node_modules/
+npm-debug.log
+.env
+
+# Docker
+db_data/
+*.pid
+*.log
+
+# OS/system
+.DS_Store

@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    container_name: teamavail_web
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./input:/app/input
+      - ./output:/app/output
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000" ]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
